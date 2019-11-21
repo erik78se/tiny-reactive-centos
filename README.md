@@ -12,7 +12,11 @@ mkdir layers
 cd layers
 git clone https://github.com/erik78se/layer-basic.git
 git checkout centos_compatibility_fixes
+cd ..
 ```
+
+## Use hallbacks patch to charm-helpers
+echo "-e git+https://github.com/hallback/charm-helpers@hallback/centosfixes#egg=charms.reactive" >> wheelhouse-overrides.txt
 
 ## Build
 make build

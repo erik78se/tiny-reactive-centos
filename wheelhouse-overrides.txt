@@ -1,0 +1,3 @@
+# https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format
+# This is hallbacks patch for charm-helpers needed for build atm. Remove once upstream fixed.
+-e git+https://github.com/hallback/charm-helpers@hallback/centosfixes#egg=charms.reactive

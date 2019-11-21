@@ -17,7 +17,7 @@ integration-test: build ## Run integration tests
 	tox -e integration
 
 build: clean ## Build charm
-	tox -e build
+	tox -e build 
 
 deploy: build ## Deploy charm 
 	juju deploy $(CHARM_BUILD_DIR)/$(CHARM_NAME)

@@ -1,0 +1,5 @@
+options:
+  foo:
+    type: string
+    default: "foovalue"
+    description: "A test option"

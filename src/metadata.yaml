@@ -1,0 +1,11 @@
+name: tiny-reactive-centos
+summary: A reference python reactice charm for centos7
+maintainer: Erik Lonroth <erik.lonroth@gmail.com>
+description: |
+  This charm just goes through to test reactice on centos7
+  It pulls in layer basic and the http layer which is a good start
+tags:
+  - misc
+subordinate: false
+series: 
+  - centos7

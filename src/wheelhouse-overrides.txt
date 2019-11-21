@@ -1,0 +1,2 @@
+# https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format
+-e git+https://github.com/hallback/charm-helpers@hallback/centosfixes#egg=charms.reactive

@@ -8,8 +8,8 @@ cloudinit-userdata: |
       gpgkey: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
       name: Extra Packages for Enterprise Linux 7 - Release
   preruncmd:
-    - yum --setopt=proxy=http://proxyseso.scania.com:8080 -y install epel-release redhat-lsb-core sudo openssh-server python36-virtualenv python36-PyYAML python3 snapd
-    - echo "proxy=http://proxyseso.scania.com:8080" >> /etc/yum.conf
+    - yum --setopt=proxy=http://proxy.corporate.com:8080 -y install epel-release redhat-lsb-core sudo openssh-server python36-virtualenv python36-PyYAML python3 snapd
+    - echo "proxy=http://proxy.corporate.com:8080" >> /etc/yum.conf
   postruncmd:
     - usermod -p '*' ubuntu
     - systemctl start sshd
@@ -17,7 +17,7 @@ cloudinit-userdata: |
     - systemctl start snapd
     - systemctl enable snapd
 
-http-proxy: http://proxyseso.scania.com:8080
-https-proxy: http://proxyseso.scania.com:8080
-snap-http-proxy: http://proxyseso.scania.com:8080
-snap-https-proxy: http://proxyseso.scania.com:8080
+http-proxy: http://proxy.corporate.com:8080
+https-proxy: http://proxy.corporate.com:8080
+snap-http-proxy: http://proxy.corporate.com:8080
+snap-https-proxy: http://proxy.corporate.com:8080

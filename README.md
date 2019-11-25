@@ -36,7 +36,7 @@ In a MAAS with a centos7 image
 ### Add new model, configure and deploy:
 ```sh
 juju add-model my-maas-cloud my-centos-model
-juju model-config  [maas-model-config-centos7.yaml](maas-things/maas-model-config-centos7.yaml)
+juju model-config maas-things/maas-model-config-centos7.yaml
 juju deploy build/builds/tiny-reactive-centos
 ```
 
@@ -46,7 +46,7 @@ You lxd cloud needs to have a centos7 image with cloudinit. (Not covered here)
 ### Add new model, configure and deploy:
 ```
 juju add-model my-lxd-cloud my-centos-model
-juju model-config [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
+juju model-config lxd-things/lxd-model-config-centos7-noproxy.yaml
 juju deploy build/builds/tiny-reactive-centos
 ```
 

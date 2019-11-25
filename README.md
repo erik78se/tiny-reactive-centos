@@ -30,34 +30,27 @@ This completes the patching needed.
 
 The resulting charm ends up in: build/builds/tiny-reactive-centos 
 
-## To deploy on MAAS: configure your model
-This applies to MAAS + centos7 only.
+## Deploy to MAAS
+In a MAAS with a centos7 image
 
-Create a new model
+### Add new model, configure and deploy:
 ```sh
-juju add-model mycloud my-centos-model
+juju add-model my-maas-cloud my-centos-model
+juju model-config  [maas-model-config-centos7.yaml](maas-things/maas-model-config-centos7.yaml)
+juju deploy build/builds/tiny-reactive-centos
 ```
 
-Create a maas [maas-model-config-centos7.yaml](maas-things/maas-model-config-centos7.yaml) configuration file.
+## Deploy to LXD
+You lxd cloud needs to have a centos7 image with cloudinit. (Not covered here)
 
-Load the config into the model:
-``'sh
-juju model-config maas-things/maas-model-config-centos7.yaml
+### Add new model, configure and deploy:
+```sh
+juju add-model my-lxd-cloud my-centos-model
+juju model-config [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
+juju deploy build/builds/tiny-reactive-centos
 ```
 
-Deploy your local build as normal in a cloud that has the centos6 or centos7 series:
-
-```juju deploy build/builds/tiny-reactive-centos```
-
-Alternatively, deply Erik Lonroth public version for reference.
+## Alternatively, deply Erik Lonroth public version:
 
 ```juju deploy cs:~erik-lonroth/tiny-reactive-centos```
 
-## Deploy on lxd cloud
-Load up a working model config as in [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
-
-```sh
-juju model-config lxd-things/lxd-model-config-centos7-noproxy.yaml
-juju deploy build/builds/tiny-reactive-centos
-
-```

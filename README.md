@@ -35,7 +35,7 @@ This applies to MAAS + centos7 only.
 
 Create a new model
 ```sh
-juju add-model scania-maas-1 my-centos-model
+juju add-model mycloud my-centos-model
 ```
 
 Create a maas [maas-model-config-centos7.yaml](maas-things/maas-model-config-centos7.yaml) configuration file.

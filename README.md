@@ -2,7 +2,7 @@
 
 A reference charm for centos known to work on MAAS and LXD clouds.
 
-## Apply patches to layer-basic (2019-november)
+# Apply patches to layer-basic (2019-november)
 This is needed to get things working november 2019. Upstream patches submited.
 
 This patch handles centos better. Its a PR waiting to get merged into the master.
@@ -24,7 +24,7 @@ cd ..
 
 This completes the patching needed.
 
-## Build
+# Build
 
 ```make build```
 
@@ -44,13 +44,13 @@ juju deploy build/builds/tiny-reactive-centos
 You lxd cloud needs to have a centos7 image with cloudinit. (Not covered here)
 
 ### Add new model, configure and deploy:
-```
+```sh
 juju add-model my-lxd-cloud my-centos-model
 juju model-config [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
 juju deploy build/builds/tiny-reactive-centos
 ```
 
-## Alternatively, deply Erik Lonroth public version:
+# Alternatively, deply Erik Lonroth public version:
 
 ```juju deploy cs:~erik-lonroth/tiny-reactive-centos```
 

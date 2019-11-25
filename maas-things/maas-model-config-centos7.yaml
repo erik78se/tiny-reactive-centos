@@ -1,0 +1,12 @@
+cloudinit-userdata: |
+  yum_repos:
+    epel-release:
+        baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+        enabled: true
+        failovermethod: priority
+        gpgcheck: true
+        gpgkey: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+        name: Extra Packages for Enterprise Linux 7 - Release
+  packages:
+    - 'python3'
+    - 'python36-PyYAML'

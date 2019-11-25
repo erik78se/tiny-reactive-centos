@@ -1,21 +1,18 @@
 # tiny-reactive-centos
 
-A reference charm for centos
+A reference charm for centos known to work on MAAS and LXD clouds.
 
 ## Apply patches to layer-basic (2019-november)
 This is needed to get things working november 2019. Upstream patches submited.
 
-### layer:basic patch
 This patch handles centos better. Its a PR waiting to get merged into the master.
-https://github.com/juju-solutions/layer-basic/pull/148
+  - https://github.com/juju-solutions/layer-basic/pull/148
 
-## Build
-To build for Scania environment.
-
-### Johan Hallbacks charm-helpers patch
+Make charm build use a patched charm-helpers:
 ```sh
 echo "-e git+https://github.com/hallback/charm-helpers@hallback/centosfixes#egg=charms.reactive" >> wheelhouse-overrides.txt
 ```
+
 
 ```sh
 mkdir layers
@@ -25,9 +22,12 @@ git checkout centos_compatibility_fixes
 cd ..
 ```
 
-At this point we can build with our patches.
+## Build
+Once patched properly.
 
-make build
+```make build```
+
+The resulting charm ends up in: build/builds/tiny-reactive-centos 
 
 ## To deploy on MAAS: configure your model
 This applies to MAAS + centos7 only.
@@ -52,7 +52,7 @@ Alternatively, deply Erik Lonroth public version for reference.
 
 ```juju deploy cs:~erik-lonroth/tiny-reactive-centos```
 
-## Deploy on lxd
+## Deploy on lxd cloud
 Load up a working model config as in [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
 
 ```sh

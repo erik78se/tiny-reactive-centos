@@ -37,26 +37,11 @@ Create a new model
 juju add-model scania-maas-1 my-centos-model
 ```
 
-Create a centos-model.yaml configuration file:
-
-```yaml
-cloudinit-userdata: |
-  yum_repos:
-    epel-release:
-        baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
-        enabled: true
-        failovermethod: priority
-        gpgcheck: true
-        gpgkey: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
-        name: Extra Packages for Enterprise Linux 7 - Release
-  packages:
-    - 'python3'
-    - 'python36-PyYAML'
-```
+Create a maas [maas-model-config-centos7.yaml](maas-things/maas-model-config-centos7.yaml) configuration file.
 
 Load the config into the model:
 ``'sh
-juju model-config centos-model.yaml
+juju model-config maas-things/maas-model-config-centos7.yaml
 ```
 
 Deploy your local build as normal in a cloud that has the centos6 or centos7 series:
@@ -66,3 +51,12 @@ Deploy your local build as normal in a cloud that has the centos6 or centos7 ser
 Alternatively, deply Erik Lonroth public version for reference.
 
 ```juju deploy cs:~erik-lonroth/tiny-reactive-centos```
+
+## Deploy on lxd
+Load up a working model config as in [lxd-centos-model-config.yaml](lxd-things/lxd-model-config-centos7-noproxy.yaml)
+
+```sh
+juju model-config lxd-things/lxd-model-config-centos7-noproxy.yaml
+juju deploy build/builds/tiny-reactive-centos
+
+```

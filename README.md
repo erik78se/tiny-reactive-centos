@@ -22,8 +22,9 @@ git checkout centos_compatibility_fixes
 cd ..
 ```
 
+This completes the patching needed.
+
 ## Build
-Once patched properly.
 
 ```make build```
 
